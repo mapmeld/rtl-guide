@@ -6,225 +6,7 @@
 
     <title>مرحبا and Welcome to RTL</title>
     <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css"/>
-    <style type="text/css">
-@font-face {
-  font-family: 'Noto Sans Thaana';
-  src: url(/lib/NotoSansThaana-Regular.ttf);
-}
-
-input.dhivehi-forced {
-  font-family: 'Noto Sans Thaana', sans-serif;
-}
-
-input.test-input {
-  display: block;
-  margin: 10px 0;
-  padding: 5px !important;
-  border-color: #bbb;
-  max-width: 50%;
-}
-
-ul li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.tag-row {
-    width: 100%;
-    position: relative;
-    clear: both;
-}
-
-.tag-row .key-wrap, .tag-row .input-wrap-position {
-    width: 40%;
-    float: left;
-    height: 30px;
-}
-
-textarea, input[type=text], input[type=search], input[type=number], input[type=url], input[type=tel], input[type=email] {
-    background-color: white;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 5px 20px 5px 10px;
-    height: 30px;
-    width: 100%;
-    border-radius: 4px;
-    text-overflow: ellipsis;
-}
-.tag-row input {
-    height: 31px;
-    border: 0;
-    border-radius: 0;
-    border-bottom: 1px solid #CCC;
-    border-left: 1px solid #CCC;
-}
-.tag-row input.key {
-    font-weight: bold;
-    background-color: #f6f6f6;
-}
-
-.tag-row:first-child input.key {
-    border-top: 1px solid #CCC;
-    border-top-left-radius: 4px;
-}
-.combobox-caret {
-    display: inline-block;
-    position: relative;
-    height: 30px;
-    width: 30px;
-    margin-left: -30px;
-    vertical-align: top;
-}
-.combobox-caret::after {
-    content: "";
-    height: 0;
-    width: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-    border-top: 5px solid #ccc;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-}
-a, button {
-  cursor: pointer;
-}
-button {
-    text-align: center;
-    line-height: 20px;
-    border: 0;
-    background: white;
-    font-weight: bold;
-    color: #333;
-    font-size: 12px;
-    display: inline-block;
-    height: 40px;
-    border-radius: 4px;
-}
-button.minor {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 10%;
-    border-radius: 0;
-    background-color: #fafafa;
-}
-.tag-row button {
-    position: absolute;
-    height: 31px;
-    right: 10%;
-    border: 1px solid #CCC;
-    border-top-width: 0;
-    border-left-width: 0;
-}
-.tag-row:first-child button {
-    border-top-width: 1px;
-}
-.icon {
-    vertical-align: top;
-    width: 20px;
-    height: 20px;
-}
-.tag-row button .icon {
-    opacity: .5;
-}
-.tag-row .tag-reference-button {
-    right: 0;
-    border-radius: 0;
-    width: 10%;
-    top: 0;
-    background: #fafafa;
-}
-.tag-row:first-child button {
-    border-top-width: 1px;
-}
-.tag-row:first-child .tag-reference-button {
-    border-top-right-radius: 4px;
-}
-.tag-reference-body {
-    overflow: hidden;
-    clear: both;
-}
-.raw-tag-editor .tag-reference-body {
-    float: left;
-    width: 100%;
-}
-.raw-tag-editor .tag-row:not(:last-child) .tag-reference-body {
-    border-bottom: 1px solid #ccc;
-}
-
-.inspector-inner {
-    padding: 20px;
-    position: relative;
-}
-.tag-row:first-child input.value {
-    border-top: 1px solid #CCC;
-}
-.tag-row input.value {
-    border-right: 1px solid #CCC;
-}
-.tag-row:last-child .tag-reference-button {
-    border-bottom-right-radius: 4px;
-}
-.raw-tag-editor .add-tag {
-    width: 40%;
-    height: 30px;
-    border-top: 0;
-    background: rgba(0,0,0,0.5);
-    border-radius: 0 0 4px 4px;
-    margin-left: 40px;
-    color: #fff;
-    font-weight: normal;
-}
-
-.raw-tag-editor[dir='rtl'] .add-tag {
-    margin-left: 0;
-    margin-right: 40px;
-}
-
-ol {
-  font-weight: bold;
-}
-
-.rtl-fix .tag-row .key-wrap, .rtl-fix .tag-row .input-wrap-position {
-  float: right;
-}
-.rtl-fix .tag-row button {
-  right: auto;
-  left: 10%;
-}
-.rtl-fix .tag-row .tag-reference-button {
-  left: 0;
-}
-
-.rtl-fix-2 .tag-row input {
-  border-right: 1px solid #CCC;
-  border-left: none;
-}
-.rtl-fix-2 .tag-row:first-child input.key {
-  border-top-left-radius: 0;
-  border-top-right-radius: 4px;
-}
-.rtl-fix-2 .tag-row:first-child .tag-reference-button {
-  border-top-right-radius: 0;
-  border-top-left-radius: 4px;
-}
-.rtl-fix-2 .tag-row .tag-reference-button {
-  border-left-width: 1px;
-}
-.rtl-fix-2 .tag-row:last-child .tag-reference-button {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 0;
-}
-.rtl-fix-2 .combobox-caret {
-  margin-left: 0;
-  margin-right: -30px;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="./welcome.css"
   </head>
   <body>
     <div class="container">
@@ -236,14 +18,14 @@ ol {
 
           <h3>Which languages do that?</h3>
           <p>Multiple languages which use Arabic, Hebrew, Syriac, Dhivehi, Adlam, and a few other scripts follow this
-          right-to-left design pattern. Most of the people who use these languages are in the Middle East / North African region.
-          But anyone could be writing content or commenting and get flustered by how your website handles their language.</p>
+          right-to-left pattern. Most of the people who use these languages are in the Middle East / North African region.
+          But anyone could be writing content or commenting and get flustered by how your website handles their words.</p>
 
           <h3>How should a text input work?</h3>
           <p>Type anything in this box, and we'll convert your typing into Dhivehi script. Notice anything weird about writing
           right-to-left script in a left-to-right box?</p>
 
-          <input class="test-input dhivehi-forced" type="text" placeholder="auto-type"/>
+          <input class="test-input dhivehi-forced" type="text" placeholder="automatic type"/>
 
           <p>The typing indicator stays on the right, while the written text continues spooling out from the left.
             It's not impossible to use, but it's weird for the user - similar to typing English in this box:</p>
@@ -252,7 +34,7 @@ ol {
 
           <p>Here we've made our first improvement - setting <code>&lt;input type="text" <b>dir="rtl"</b>/&gt;</code> when
           we expect a right-to-left language:</p>
-          <input class="test-input dhivehi-forced" type="text" dir="rtl" placeholder="auto-type"/>
+          <input class="test-input dhivehi-forced" type="text" dir="rtl" placeholder="automatic type"/>
 
           <p>If you don't know what language to expect, there's a simple way to make text input work for everyone -
           use <code>&lt;input type="text" <b>dir="auto"</b>/&gt;</code></p>
@@ -269,7 +51,7 @@ ol {
             <li>Hello</li>
             <li>World</li>
           </ol>
-          <div dir="rtl" style="width:30%;">
+          <div dir="rtl" style="width:38%;">
             <ol>
               <li>Hello</li>
               <li>World</li>
@@ -279,7 +61,7 @@ ol {
           <p>It might look a little weird to see this formatting with English! But I've seen official signs in RTL languages and the ".1" punctuation is correct.</p>
 
           <h3>Do I need to change my CSS?</h3>
-          <p>The answer is... it's complicated.</p>
+          <p>The answer is... yes, and it's complicated.</p>
 
           <p>An element which you set to <code>float: left</code> needs to be flipped to <code>float: right</code>.</p>
 
@@ -287,9 +69,11 @@ ol {
             <h2 style="float:left;">float: left</h2>
           </div>
           <div dir="rtl">
-            <h2 style="float:right;">float: right in RTL, too</h2>
+            <h2 style="float:right;">float: right in RTL</h2>
           </div>
           <div class="clearfix"></div>
+
+          <br/><br/><br/><br/>
 
           <p>A <code>&lt;table&gt;</code> element will rearrange automatically:</p>
 
@@ -306,6 +90,8 @@ ol {
               <tr><td>First Column</td><td>Second</td><td>Third</td></tr>
             </table>
           </div>
+
+          <br/><br/><br/><br/>
 
           <p>But consider this data editor (which uses CSS and not the <code>&lt;table&gt;</code> element) from OpenStreetMap iD. The design includes padding, rounded corners, and CSS triangles
           to make this appealing to the user. On the bottom right corner of the table, there's a rounded edge that doesn't exist

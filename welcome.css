@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Noto Sans Thaana';
+  src: url(/lib/NotoSansThaana-Regular.ttf);
+}
+
+input.dhivehi-forced {
+  font-family: 'Noto Sans Thaana', sans-serif;
+}
+
+body {
+  background-color: #444;
+}
+
+.container {
+  background-color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+h3 {
+  margin-top: 40px;
+}
+
+input.test-input {
+  display: block;
+  margin: 30px 0;
+  padding: 5px !important;
+  border-color: #bbb;
+  max-width: 50%;
+}
+
+ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.tag-row {
+    width: 100%;
+    position: relative;
+    clear: both;
+}
+
+.tag-row .key-wrap, .tag-row .input-wrap-position {
+    width: 40%;
+    float: left;
+    height: 30px;
+}
+
+textarea, input[type=text], input[type=search], input[type=number], input[type=url], input[type=tel], input[type=email] {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 5px 20px 5px 10px;
+    height: 30px;
+    width: 100%;
+    border-radius: 4px;
+    text-overflow: ellipsis;
+}
+.tag-row input {
+    height: 31px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+}
+.tag-row input.key {
+    font-weight: bold;
+    background-color: #f6f6f6;
+}
+
+.tag-row:first-child input.key {
+    border-top: 1px solid #CCC;
+    border-top-left-radius: 4px;
+}
+.combobox-caret {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin-left: -30px;
+    vertical-align: top;
+}
+.combobox-caret::after {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-top: 5px solid #ccc;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+a, button {
+  cursor: pointer;
+}
+button {
+    text-align: center;
+    line-height: 20px;
+    border: 0;
+    background: white;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+    display: inline-block;
+    height: 40px;
+    border-radius: 4px;
+}
+button.minor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 10%;
+    border-radius: 0;
+    background-color: #fafafa;
+}
+.tag-row button {
+    position: absolute;
+    height: 31px;
+    right: 10%;
+    border: 1px solid #CCC;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+.tag-row:first-child button {
+    border-top-width: 1px;
+}
+.icon {
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+}
+.tag-row button .icon {
+    opacity: .5;
+}
+.tag-row .tag-reference-button {
+    right: 0;
+    border-radius: 0;
+    width: 10%;
+    top: 0;
+    background: #fafafa;
+}
+.tag-row:first-child button {
+    border-top-width: 1px;
+}
+.tag-row:first-child .tag-reference-button {
+    border-top-right-radius: 4px;
+}
+.tag-reference-body {
+    overflow: hidden;
+    clear: both;
+}
+.raw-tag-editor .tag-reference-body {
+    float: left;
+    width: 100%;
+}
+.raw-tag-editor .tag-row:not(:last-child) .tag-reference-body {
+    border-bottom: 1px solid #ccc;
+}
+
+.inspector-inner {
+    padding: 20px;
+    position: relative;
+}
+.tag-row:first-child input.value {
+    border-top: 1px solid #CCC;
+}
+.tag-row input.value {
+    border-right: 1px solid #CCC;
+}
+.tag-row:last-child .tag-reference-button {
+    border-bottom-right-radius: 4px;
+}
+.raw-tag-editor .add-tag {
+    width: 40%;
+    height: 30px;
+    border-top: 0;
+    background: rgba(0,0,0,0.5);
+    border-radius: 0 0 4px 4px;
+    margin-left: 40px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.raw-tag-editor[dir='rtl'] .add-tag {
+    margin-left: 0;
+    margin-right: 40px;
+}
+
+ol {
+  font-weight: bold;
+}
+
+.rtl-fix .tag-row .key-wrap, .rtl-fix .tag-row .input-wrap-position {
+  float: right;
+}
+.rtl-fix .tag-row button {
+  right: auto;
+  left: 10%;
+}
+.rtl-fix .tag-row .tag-reference-button {
+  left: 0;
+}
+
+.rtl-fix-2 .tag-row input {
+  border-right: 1px solid #CCC;
+  border-left: none;
+}
+.rtl-fix-2 .tag-row:first-child input.key {
+  border-top-left-radius: 0;
+  border-top-right-radius: 4px;
+}
+.rtl-fix-2 .tag-row:first-child .tag-reference-button {
+  border-top-right-radius: 0;
+  border-top-left-radius: 4px;
+}
+.rtl-fix-2 .tag-row .tag-reference-button {
+  border-left-width: 1px;
+}
+.rtl-fix-2 .tag-row:last-child .tag-reference-button {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+}
+.rtl-fix-2 .combobox-caret {
+  margin-left: 0;
+  margin-right: -30px;
+}
