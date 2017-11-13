@@ -21,11 +21,11 @@ h3 {
   margin-top: 40px;
 }
 
-input.test-input {
+input[type=text].test-input {
   display: block;
   margin: 30px 0;
   padding: 5px !important;
-  border-color: #bbb;
+  border: 1px solid #00f;
 }
 
 ul li {
@@ -43,6 +43,18 @@ ul li {
     width: 40%;
     float: left;
     height: 30px;
+}
+
+.border {
+  padding: 15px;
+  border: 2px solid #444;
+  margin: 15px;
+}
+
+canvas {
+  border: 1px solid #000;
+  display: block;
+  margin: 8px;
 }
 
 textarea, input[type=text], input[type=search], input[type=number], input[type=url], input[type=tel], input[type=email] {
@@ -234,7 +246,7 @@ ol {
     max-width: 50%;
   }
 
-  .small-list {
-    width: 38%;
+  .border {
+    width: 44%;
   }
 }

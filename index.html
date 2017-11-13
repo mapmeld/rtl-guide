@@ -47,35 +47,76 @@
           <p>The first step is to set <code>dir="rtl"</code> in the body tag or another high-up parent element on the page. It'll turn <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> and other elements
           around for you:</p>
 
-          <ol>
-            <li>Hello</li>
-            <li>World</li>
-          </ol>
-          <div dir="rtl" class="small-list">
+          <div class="border">
             <ol>
               <li>Hello</li>
               <li>World</li>
             </ol>
+            <div dir="rtl" class="small-list">
+              <ol>
+                <li>Hello</li>
+                <li>World</li>
+              </ol>
+            </div>
           </div>
 
-          <p>It might look a little weird to see this formatting with English! But I've seen official signs in RTL languages and the ".1" punctuation is correct.</p>
+          <p>It looks a little weird to see this ".1" list formatting in English! But I've seen official signs in RTL languages and this is appearing correctly.</p>
 
-          <h3>Do I need to change my CSS?</h3>
+          <h3>Horizontal Lists</h3>
+          <p>It's common practice to have a list of ordered links, buttons, and/or dividers in your navbar, something like:<br/>
+            <code>
+&lt;strong&gt;RTL Corp&lt;/strong&gt;<br/>
+              &lt;button&gt;(1) Product&lt;/button&gt; | <br/>
+              &lt;button&gt;(2) Company&lt;/button&gt; |<br/>
+              &lt;button&gt;(3) Log In&lt;/button&gt;<br/>
+            </code>
+          </p>
+          <div class="border">
+            <strong>RTL Corp</strong>
+            <button class="btn btn-primary">(1) Product</button> |
+            <button class="btn btn-primary">(2) Company</button> |
+            <button class="btn btn-primary">(3) Log In</button>
+          </div>
+          <p>
+            Inside a <code>dir="rtl"</code> element, or <code>dir="auto"</code> with RTL text, they switch their order seamlessly, including moving the preceding numbers and punctuation to the right side of the button:
+          </p>
+          <div class="border" dir="rtl">
+            <strong>RTL Corp</strong>
+            <button class="btn btn-primary">(1) Product</button> |
+            <button class="btn btn-primary">(2) Company</button> |
+            <button class="btn btn-primary">(3) Log In</button>
+          </div>
+
+          <p>
+            So why not use <code>dir="auto"</code> everywhere? If I start the line with LTR content, then the layout engine will defer to that, and mess up the order of the remaining RTL content.
+            The numbers such as (1) are shown as "1)" on the left with an errant ")" on the right. (Both parentheses appear as ) because the characters
+            represent open and close paren, and their direction depends on local context).
+          </p>
+          <div class="border" dir="auto">
+            <strong>RTL Corp</strong>
+            <button class="btn btn-primary">ކު (1)</button> |
+            <button class="btn btn-primary">ކު (2)</button> |
+            <button class="btn btn-primary">ކު (3)</button>
+          </div>
+
+          <h3>Will I need to change my CSS?</h3>
           <p>The answer is... yes, and it's complicated.</p>
 
-          <p>An element which you set to <code>float: left</code> needs to be flipped to <code>float: right</code>.</p>
+          <p>An element which you set to <code>float: left</code> should be flipped to <code>float: right</code>, and vice-versa.</p>
+          <p>This could be a company logo which you have in the top-left, Log In | Sign Up links in the top-right, or a sidebar.</p>
 
-          <div>
-            <h2 style="float:left;">float: left</h2>
+          <div class="border">
+            <div>
+              <h2 style="float:left;">float: left</h2>
+            </div>
+            <div dir="rtl">
+              <h2 style="float:right;">float: right in RTL</h2>
+            </div>
+            <div class="clearfix"></div>
           </div>
-          <div dir="rtl">
-            <h2 style="float:right;">float: right in RTL</h2>
-          </div>
-          <div class="clearfix"></div>
+          <br/><br/>
 
-          <br/><br/><br/><br/>
-
-          <p>A <code>&lt;table&gt;</code> element will rearrange automatically:</p>
+          <p>An RTL <code>&lt;table&gt;</code> element will rearrange and right-justify automatically:</p>
 
           <table class="table table-striped table-bordered">
             <tr><td>First Column</td><td>Second</td><td>Third</td></tr>
@@ -93,8 +134,9 @@
 
           <br/><br/><br/><br/>
 
-          <p>But consider this data editor (which uses CSS and not the <code>&lt;table&gt;</code> element) from OpenStreetMap iD. The design includes padding, rounded corners, and CSS triangles
-          to make this appealing to the user. On the bottom right corner of the table, there's a rounded edge that doesn't exist
+          <p>But consider this data editor (which uses CSS and not the <code>&lt;table&gt;</code> element) from OpenStreetMap iD.
+          The design includes padding, rounded corners, and CSS triangles to make this appealing to the user.
+          On the bottom right corner of the table, there's a rounded edge that doesn't exist
           on the bottom left edge, where it meets the 'Add Tag' button.</p>
 
 <div class="inspector-border raw-tag-editor inspector-inner"><ul class="tag-list">
@@ -102,7 +144,7 @@
 <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="internet_access"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="yes"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
 <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="name"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="Bakery"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li></ul><button class="add-tag">Add Tag</button></div>
 
-          <p>When we switch to a right-to-left language layout, we need to revamp the style and order of elements and CSS styling, or it will look confusing and wrong. The most priority element needs to be moved to appear on the right.</p>
+          <p>When we switch to an RTL layout, only the text justification changes automatically.</p>
 
           <div class="inspector-border raw-tag-editor inspector-inner" dir="rtl"><ul class="tag-list">
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="عنوان"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="359 van Brunt"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
@@ -110,7 +152,11 @@
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="اسم"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="Bakery"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li></ul><button class="add-tag">اضف سطر</button></div>
 
 
-          <p>First let's fix any positioning / layout code by switching <code>float: left</code>, changing absolute <code>right</code> offset to a <code>left</code> offset, and negating the original <code>right</code> offset by setting it to <code>right: auto</code>.</p>
+          <p>We need to revamp the style and order of elements and CSS styling, or it will look confusing and wrong.
+            The most priority element needs to be moved to appear on the right.
+            First let's fix any positioning / layout code by switching <code>float: left</code>,
+            changing <code>right</code> offset to a <code>left</code> offset,
+            and negating the original <code>right</code> offset by setting it to <code>right: auto</code>.</p>
 
 <code>[dir='rtl'] .tag-row .key-wrap, [dir='rtl'] .tag-row .input-wrap-position {<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;float: right;<br/>
@@ -126,28 +172,63 @@
 
           <p>
           If this seems particularly wordy, you could use a CSS pre-processor library and wrap all of your RTL-specific code inside of a <code>[dir='rtl'] { }</code> block.
-        </p>
+          </p>
 
           <div class="inspector-border raw-tag-editor inspector-inner rtl-fix" dir="rtl"><ul class="tag-list">
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="عنوان"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="359 van Brunt"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="خدمة الإنترنت"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="yes"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="اسم"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="Bakery"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li></ul><button class="add-tag">اضف سطر</button></div>
 
-        <p>
+          <p>
 Now the final step is flipping and negating rules such as <code>border-left</code>, <code>border-left-width</code>, and <code>border-top-left-radius</code>. Another example: <code>combobox-caret</code> can be fixed by flipping its <code>margin-left: -30px</code> to <code>0</code> and adding a corresponding <code>margin-right: -30px</code>. At no point do we need to change the order or content of our HTML -
 this is all happening on the CSS level.
-        </p>
+          </p>
 
         <div class="inspector-border raw-tag-editor inspector-inner rtl-fix rtl-fix-2" dir="rtl"><ul class="tag-list">
         <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="عنوان"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="359 van Brunt"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
         <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="خدمة الإنترنت"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="yes"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li>
         <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="اسم"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="Bakery"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li></ul><button class="add-tag">اضف سطر</button></div>
 
-        <p>
+          <p>
           There are libraries such as <a href="https://cssjanus.github.io/">CSS Janus</a> and <a href="https://github.com/ded/R2">R2</a> which flip any CSS properties automatically. You can get R2 as a Ruby gem which will
           automatically create a separate CSS file.  But when you do that, watch out for things which <strong>shouldn't</strong> change, such as sprites' <code>background-position</code>.  You can mark these CSS blocks to keep them from
           being broken by your helper.
-        </p>
+          </p>
+
+          <h3>Canvas Text</h3>
+          <p>This is a particularly interesting case which you might run into with data visualization or graphics.
+            You can write text on a <code>&lt;canvas&gt;</code> element using this code:
+            <br/>
+            <br/>
+            <code>ctx.fillText("hello", 0, 20);</code>
+
+            <canvas id="hello" width="100" height="50"></canvas>
+            <br/>
+
+            When writing RTL text, the X-coordinate determines the left-most end of the text:
+            <br/>
+            <code>
+marhaba = "مرحبا";<br/>
+ctx.fillText(marhaba, 0, 20);</code>
+
+            <canvas id="hello2" width="100" height="50"></canvas>
+            <br/>
+          </p>
+          <p>
+            If you are making an RTL layout inside <code>&lt;canvas&gt;</code> and want this text on the right edge,
+            you will need to calculate the X-coordinate to place your text. Here's how that works:
+            <br/>
+            <br/>
+            <code>
+            textWidth = ctx.measureText(marhaba).width;<br/>
+            ctx.fillText(marhaba, canvas.width - textWidth, 20);</code>
+            <canvas id="hello3" width="100" height="50"></canvas>
+            <br/>
+
+            In these examples, I see a little whitespace to the left of "hello" but the
+            beginning and end of "marhaba" appear to contact the edge of the box.
+            Consider shifting your Arabic text slightly to the left or right to compensate.
+          </p>
 
           <h3>JavaScript gotchas</h3>
           <p>Sometimes in interactive JS, you are expecting the edge of the screen and the elements to be in
@@ -182,6 +263,17 @@ var inps = document.getElementsByClassName("dhivehi-forced");
 for (var i = 0; i < inps.length; i++) {
   addTyping(inps[i]);
 }
+var marhaba = 'مرحبا';
+var ctx = document.getElementById("hello").getContext('2d');
+ctx.font = '20px Arial';
+ctx.fillText("hello", 0, 20);
+var ctx2 = document.getElementById("hello2").getContext('2d');
+ctx2.font = '20px Arial';
+ctx2.fillText(marhaba, 0, 20);
+var ctx3 = document.getElementById("hello3").getContext('2d');
+ctx3.font = '20px Arial';
+ctx3.fillText(marhaba, 100 - ctx3.measureText(marhaba).width, 20);
+
     </script>
   </body>
 </html>
