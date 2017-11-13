@@ -14,7 +14,7 @@
         <div class="col-sm-12">
           <h1>مرحبا and Welcome to RTL</h1>
           <p>While reading this page from top-to-bottom, you'll learn how to make websites that work in
-          languages which write right-to-left.</p>
+          languages which write from right-to-left.</p>
 
           <h3>Which languages do that?</h3>
           <p>Multiple languages which use Arabic, Hebrew, Syriac, Dhivehi, Adlam, and a few other scripts follow this
@@ -67,15 +67,13 @@
             <code>
 &lt;strong&gt;RTL Corp&lt;/strong&gt;<br/>
               &lt;button&gt;(1) Product&lt;/button&gt; | <br/>
-              &lt;button&gt;(2) Company&lt;/button&gt; |<br/>
-              &lt;button&gt;(3) Log In&lt;/button&gt;<br/>
+              &lt;button&gt;(2) Company&lt;/button&gt;
             </code>
           </p>
           <div class="border">
             <strong>RTL Corp</strong>
             <button class="btn btn-primary">(1) Product</button> |
-            <button class="btn btn-primary">(2) Company</button> |
-            <button class="btn btn-primary">(3) Log In</button>
+            <button class="btn btn-primary">(2) Company</button>
           </div>
           <p>
             Inside a <code>dir="rtl"</code> element, or <code>dir="auto"</code> with RTL text, they switch their order seamlessly, including moving the preceding numbers and punctuation to the right side of the button:
@@ -83,20 +81,19 @@
           <div class="border" dir="rtl">
             <strong>RTL Corp</strong>
             <button class="btn btn-primary">(1) Product</button> |
-            <button class="btn btn-primary">(2) Company</button> |
-            <button class="btn btn-primary">(3) Log In</button>
+            <button class="btn btn-primary">(2) Company</button>
           </div>
 
           <p>
-            So why not use <code>dir="auto"</code> everywhere? If I start the line with LTR content, then the layout engine will defer to that, and mess up the order of the remaining RTL content.
+            So why not use <code>dir="auto"</code> like we saw in <code>input</code> elements?<br/>
+            If I did that, and then started the line with LTR content, then our text will follow LTR layout and mess up the order of the remaining RTL content.
             The numbers such as (1) are shown as "1)" on the left with an errant ")" on the right. (Both parentheses appear as ) because the characters
             represent open and close paren, and their direction depends on local context).
           </p>
           <div class="border" dir="auto">
             <strong>RTL Corp</strong>
             <button class="btn btn-primary">ކު (1)</button> |
-            <button class="btn btn-primary">ކު (2)</button> |
-            <button class="btn btn-primary">ކު (3)</button>
+            <button class="btn btn-primary">ކު (2)</button>
           </div>
 
           <h3>Will I need to change my CSS?</h3>
@@ -180,8 +177,8 @@
           <li class="tag-row cf"><div class="key-wrap"><input type="text" class="key combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="اسم"><div class="combobox-caret"></div></div><div class="input-wrap-position"><input type="text" class="value combobox-input" maxlength="255" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="Bakery"><div class="combobox-caret"></div></div><button tabindex="-1" class="remove minor">[Trash]</button><button class="tag-reference-button" tabindex="-1">[Info]</button><div class="tag-reference-body cf" style="max-height: 0px; opacity: 0;"></div></li></ul><button class="add-tag">اضف سطر</button></div>
 
           <p>
-Now the final step is flipping and negating rules such as <code>border-left</code>, <code>border-left-width</code>, and <code>border-top-left-radius</code>. Another example: <code>combobox-caret</code> can be fixed by flipping its <code>margin-left: -30px</code> to <code>0</code> and adding a corresponding <code>margin-right: -30px</code>. At no point do we need to change the order or content of our HTML -
-this is all happening on the CSS level.
+Now the final step is flipping and negating rules such as <code>border-left</code>, <code>border-left-width</code>, and <code>border-top-left-radius</code>. Another example: <code>combobox-caret</code> can be fixed by negating its <code>margin-left: -30px</code> to <code>0</code> and re-applying it as <code>margin-right: -30px</code>.
+<br/><br/>At no point do we need to change the order or content of our HTML - this is all happening on the CSS level.
           </p>
 
         <div class="inspector-border raw-tag-editor inspector-inner rtl-fix rtl-fix-2" dir="rtl"><ul class="tag-list">
@@ -195,6 +192,33 @@ this is all happening on the CSS level.
           being broken by your helper.
           </p>
 
+          <h3>Icons</h3>
+          <p>Arrows (including Undo and Redo icons) should be flipped either by using the opposing icon images, or with a CSS transform.
+            Follow this pattern for any other icon which is conveying moving forward in space or time.</p>
+          <p>Some icons are open to interpretation: for OpenStreetMap we discussed flipping the geolocation and line drawing icons,
+            but it wasn't clear if there was a known convention for this.</p>
+
+          <h3>Numbers</h3>
+          <p>In the Arabic numbering systems, the most-significant digit is written on the left, similar to our own system:
+          (100 | Arabic: ١٠٠) - We may call our digits "Arabic numerals", but the Arab world later adopted Indic
+          numerals for many cases.</p>
+          <p>The Hebrew numbering system is rarely used except for numbering a list or representing dates on the Hebrew calendar.
+          It has no zero, so it works similar to Roman numerals and is written right-to-left (14 | Hebrew: יד‎)</p>
+          <p>The Adlam numbering system is also right-to-left.</p>
+
+          <h3>Currency</h3>
+          <p>
+            The currency symbol is typically written after (to the left) of the number value.
+            <ul>
+              <li>The currency in multiple countries of the Gulf region is called rial (ريال) and it can also be written with one Unicode character (﷼).</li>
+              <li>The currency in Israel and Palestine is the Israeli New Shekhel, which uses this Unicode character: ₪ </li>
+              <li>Other Middle East / North African countries use "dirham" and "dinar" with their own spellings and symbols</li>
+            </ul>
+          </p>
+          <p>
+
+          </p>
+
           <h3>Canvas Text</h3>
           <p>This is a particularly interesting case which you might run into with data visualization or graphics.
             You can write text on a <code>&lt;canvas&gt;</code> element using this code:
@@ -202,7 +226,7 @@ this is all happening on the CSS level.
             <br/>
             <code>ctx.fillText("hello", 0, 20);</code>
 
-            <canvas id="hello" width="100" height="50"></canvas>
+            <canvas id="hello" width="150" height="50"></canvas>
             <br/>
 
             When writing RTL text, the X-coordinate determines the left-most end of the text:
@@ -211,23 +235,37 @@ this is all happening on the CSS level.
 marhaba = "مرحبا";<br/>
 ctx.fillText(marhaba, 0, 20);</code>
 
-            <canvas id="hello2" width="100" height="50"></canvas>
+            <canvas id="hello2" width="150" height="50"></canvas>
             <br/>
           </p>
           <p>
-            If you are making an RTL layout inside <code>&lt;canvas&gt;</code> and want this text on the right edge,
-            you will need to calculate the X-coordinate to place your text. Here's how that works:
+            If you are making an RTL layout inside <code>&lt;canvas&gt;</code> and want the text to align with the right border,
+            you will need to calculate the left X-coordinate to place your text. Here's how that works:
             <br/>
             <br/>
             <code>
+            /* set text size, font, etc first */ <br/>
             textWidth = ctx.measureText(marhaba).width;<br/>
             ctx.fillText(marhaba, canvas.width - textWidth, 20);</code>
-            <canvas id="hello3" width="100" height="50"></canvas>
+            <canvas id="hello3" width="150" height="50"></canvas>
             <br/>
 
             In these examples, I see a little whitespace to the left of "hello" but the
-            beginning and end of "marhaba" appear to contact the edge of the box.
+            beginning and end of "مرحبا" contact the border of the <code>&lt;canvas&gt;</code>.
             Consider shifting your Arabic text slightly to the left or right to compensate.
+          </p>
+
+          <h3>SVG Text</h3>
+          <p>SVG is relatively uncommon, but comes in handy with mapping and data visualization (such as D3).
+            On Chrome / Webkit browsers, there is a known bug with <code>&lt;textPath&gt;</code> elements and RTL text,
+            where the text does not appear in a right-to-left direction and there is no text-shaping connecting the
+            Arabic script. Except for text-shaped languages, you can fix this issue by reversing the string with some
+            additional cautions to keep any vowel signs with their letters. Remember to modify the text only for users
+            in Chrome or Webkit browsers.
+          </p>
+          <p>
+            The details of how to do text-shaping in client-side JavaScript are rather complicated, but you
+            can try using <a href="https://github.com/mapmeld/js-arabic-reshaper">this library</a>.
           </p>
 
           <h3>JavaScript gotchas</h3>
@@ -238,42 +276,15 @@ ctx.fillText(marhaba, 0, 20);</code>
           <h3>How should a video player work?</h3>
           <p>Trick question! Video players and icons go back to how tapes and older players worked, so they have
           the same conventions in right-to-left languages.</p>
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         </div>
       </div>
     </div>
 
-    <script type="text/javascript">
-function addTyping(input) {
-  var repeatString = 'މިއެކުމާފާނަކީ ކޮންމެ ބޭފުޅަކަށް ވެސް މިނިވަންކަމާ އެކު އުނިއިތުރު ގެނެވޭނެ އެކުމާފާނެކެވެ.';
-  var currentIndex = 0;
-  inps[i].oninput = function (e) {
-    if (e.inputType === 'deleteContentBackward') {
-      // backspace
-      currentIndex--;
-      if (currentIndex < 0) {
-        currentIndex += repeatString.length;
-      }
-    } else {
-      e.target.value = e.target.value.substring(0, e.target.value.length - 1) + repeatString[currentIndex];
-      currentIndex = (currentIndex + 1) % repeatString.length;
-    }
-  };
-}
-var inps = document.getElementsByClassName("dhivehi-forced");
-for (var i = 0; i < inps.length; i++) {
-  addTyping(inps[i]);
-}
-var marhaba = 'مرحبا';
-var ctx = document.getElementById("hello").getContext('2d');
-ctx.font = '20px Arial';
-ctx.fillText("hello", 0, 20);
-var ctx2 = document.getElementById("hello2").getContext('2d');
-ctx2.font = '20px Arial';
-ctx2.fillText(marhaba, 0, 20);
-var ctx3 = document.getElementById("hello3").getContext('2d');
-ctx3.font = '20px Arial';
-ctx3.fillText(marhaba, 100 - ctx3.measureText(marhaba).width, 20);
-
-    </script>
+    <script src="./welcome.js"></script>
   </body>
 </html>
