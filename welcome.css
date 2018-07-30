@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Noto Sans Thaana';
-  src: url(/lib/NotoSansThaana-Regular.ttf);
+  src: url(lib/NotoSansThaana-Regular.ttf);
 }
 
 input.dhivehi-forced {
